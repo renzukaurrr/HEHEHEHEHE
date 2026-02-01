@@ -112,3 +112,54 @@ h1 {
     top: -50px;
     z-index: 1000;
 }
+
+/* ... keep your @import and body styles the same ... */
+
+.page {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+
+/* Desktop sizes (Default) */
+.hero-title { font-size: 4.5rem; }
+.huge-celebration { font-size: 5.5rem; }
+h1 { font-size: 3rem; }
+.card { width: 90%; }
+
+/* Tablet/Phone sizes (Width less than 600px) */
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 2.5rem; /* Shrinks so it doesn't break into 5 lines */
+        padding: 0 10px;
+    }
+    
+    .huge-celebration {
+        font-size: 3.5rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .card {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .card img {
+        height: 200px; /* Shorter image for small screens */
+    }
+
+    .next-btn, .yes-btn, #noBtn {
+        padding: 15px 35px;
+        font-size: 1.2rem;
+        width: 80%; /* Makes buttons easier to tap on mobile */
+        margin: 10px auto;
+    }
+}
