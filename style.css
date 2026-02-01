@@ -19,6 +19,7 @@ body {
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
+    position: relative; /* important for buttons positioning */
 }
 
 .page.active {
@@ -31,7 +32,7 @@ body {
 /* --- TEXT SIZES --- */
 .hero-title {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(2.5rem, 8vw, 4.5rem); /* Adjusts automatically to screen size */
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
     color: #ff4d6d;
     margin-bottom: 30px;
     line-height: 1.1;
@@ -45,7 +46,7 @@ h1 {
 
 .huge-celebration {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(3.5rem, 10vw, 5.5rem); 
+    font-size: clamp(3.5rem, 10vw, 5.5rem);
     color: #ff4d6d;
     animation: heartbeat 1.5s infinite;
 }
@@ -68,10 +69,10 @@ h1 {
 }
 
 .card img {
-    width: 100%;          /* Image fills the card's width */
-    height: auto;         /* Keeps aspect ratio */
-    max-width: 100%;      /* Prevents overflow */
-    object-fit: cover;    /* Fills container without stretching */
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
     border-radius: 20px;
     display: block;
     margin-bottom: 15px;
@@ -80,14 +81,14 @@ h1 {
 /* --- MASSIVE BUTTONS --- */
 .next-btn, .yes-btn, #noBtn {
     margin-top: 25px;
-    padding: 25px 60px; /* Even bigger padding */
+    padding: 25px 60px;
     border-radius: 60px;
     border: none;
-    font-size: 1.8rem;   /* Bigger font size */
+    font-size: 1.8rem;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s;
-    width: 90%;          /* Makes them wide and easy to tap */
+    transition: transform 0.2s, left 0.3s ease, top 0.3s ease; /* smooth movement */
+    width: 90%;
     max-width: 350px;
 }
 
@@ -100,6 +101,7 @@ h1 {
 #noBtn {
     background: #a9a9a9;
     color: white;
+    z-index: 1001; /* make sure it's on top */
 }
 
 /* Confetti Layer */
