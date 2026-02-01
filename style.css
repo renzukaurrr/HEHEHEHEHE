@@ -15,7 +15,7 @@ body {
 .page {
     display: none;
     width: 100%;
-    max-width: 600px; /* Increased width */
+    max-width: 600px;
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
@@ -28,30 +28,24 @@ body {
     align-items: center;
 }
 
-/* --- BIG TEXT ADJUSTMENTS --- */
-
-/* First and Last Page Titles */
+/* --- TEXT SIZES --- */
 .hero-title {
     font-family: 'Dancing Script', cursive;
-    font-size: 4.5rem; /* Massive text */
+    font-size: clamp(2.5rem, 8vw, 4.5rem); /* Adjusts automatically to screen size */
     color: #ff4d6d;
     margin-bottom: 30px;
     line-height: 1.1;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
 }
 
-/* General Page Titles (Itinerary) */
 h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
+    font-size: clamp(2rem, 6vw, 3rem);
     color: #ff4d6d;
-    margin-bottom: 20px;
 }
 
-/* The Final Page Celebration Text */
 .huge-celebration {
     font-family: 'Dancing Script', cursive;
-    font-size: 5.5rem; 
+    font-size: clamp(3.5rem, 10vw, 5.5rem); 
     color: #ff4d6d;
     animation: heartbeat 1.5s infinite;
 }
@@ -62,48 +56,49 @@ h1 {
     100% { transform: scale(1); }
 }
 
-/* --- CARD & CONTENT --- */
-
+/* --- IMAGE FIXES --- */
 .card {
     background: rgba(255, 255, 255, 0.9);
-    width: 90%;
-    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    padding: 25px;
     border-radius: 30px;
     box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
     border: 2px solid white;
 }
 
-.card h2 {
-    font-size: 2rem;
-    margin: 10px 0;
+.card img {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Forces a consistent shape */
+    object-fit: cover;   /* Fills the box without stretching */
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 15px;
 }
 
-.card p, .card li {
-    font-size: 1.3rem;
-}
-
-/* --- BUTTONS --- */
-
-.next-btn, .yes-btn {
-    margin-top: 30px;
-    padding: 20px 50px; /* Bigger buttons */
-    border-radius: 50px;
+/* --- MASSIVE BUTTONS --- */
+.next-btn, .yes-btn, #noBtn {
+    margin-top: 25px;
+    padding: 25px 60px; /* Even bigger padding */
+    border-radius: 60px;
     border: none;
-    background: #ff4d6d;
-    color: white;
-    font-size: 1.5rem; /* Bigger font */
+    font-size: 1.8rem;   /* Bigger font size */
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+    transition: transform 0.2s;
+    width: 90%;          /* Makes them wide and easy to tap */
+    max-width: 350px;
+}
+
+.next-btn, .yes-btn {
+    background: #ff4d6d;
+    color: white;
+    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
 }
 
 #noBtn {
     background: #a9a9a9;
     color: white;
-    padding: 20px 50px;
-    border-radius: 50px;
-    font-size: 1.5rem;
-    border: none;
 }
 
 /* Confetti Layer */
@@ -113,53 +108,12 @@ h1 {
     z-index: 1000;
 }
 
-/* ... keep your @import and body styles the same ... */
-
-.page {
-    display: none;
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-/* --- MOBILE RESPONSIVENESS --- */
-
-/* Desktop sizes (Default) */
-.hero-title { font-size: 4.5rem; }
-.huge-celebration { font-size: 5.5rem; }
-h1 { font-size: 3rem; }
-.card { width: 90%; }
-
-/* Tablet/Phone sizes (Width less than 600px) */
+/* --- MOBILE SPECIFIC --- */
 @media (max-width: 600px) {
-    .hero-title {
-        font-size: 2.5rem; /* Shrinks so it doesn't break into 5 lines */
-        padding: 0 10px;
-    }
-    
-    .huge-celebration {
-        font-size: 3.5rem;
-    }
-    
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    .card {
-        width: 95%;
-        padding: 15px;
-    }
-
-    .card img {
-        height: 200px; /* Shorter image for small screens */
-    }
-
+    .page { padding: 10px; }
+    .card { padding: 15px; width: 95%; }
     .next-btn, .yes-btn, #noBtn {
-        padding: 15px 35px;
-        font-size: 1.2rem;
-        width: 80%; /* Makes buttons easier to tap on mobile */
-        margin: 10px auto;
+        padding: 20px 40px;
+        font-size: 1.5rem;
     }
 }
