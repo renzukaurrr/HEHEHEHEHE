@@ -6,109 +6,104 @@ body {
     margin: 0;
     color: #4a4a4a;
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .page {
     display: none;
     width: 100%;
-    max-width: 600px;
-    padding: 40px 20px;
+    max-width: 500px;
+    padding: 20px;
     box-sizing: border-box;
     text-align: center;
-    position: relative;
+    z-index: 10;
 }
 
 .page.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* TEXT */
 .hero-title {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-size: clamp(2.5rem, 10vw, 4rem);
     color: #ff4d6d;
-    margin-bottom: 30px;
-    line-height: 1.1;
-}
-
-h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: clamp(2rem, 6vw, 3rem);
-    color: #ff4d6d;
+    margin-bottom: 20px;
 }
 
 .huge-celebration {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(3.5rem, 10vw, 5.5rem);
+    font-size: clamp(3.5rem, 12vw, 5rem);
     color: #ff4d6d;
-    animation: heartbeat 1.5s infinite;
 }
 
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* CARD / IMAGE */
 .card {
-    background: rgba(255, 255, 255, 0.9);
+    background: white;
     width: 100%;
-    max-width: 450px;
-    padding: 25px;
-    border-radius: 30px;
-    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
-    border: 2px solid white;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 20px;
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    border-radius: 15px;
     margin-bottom: 15px;
 }
 
 /* BUTTONS */
 .next-btn, .yes-btn, #noBtn {
-    margin-top: 25px;
-    padding: 25px 60px;
-    border-radius: 60px;
-    border: none;
-    font-size: 1.8rem;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 15px auto;
+    padding: 20px;
+    font-size: 1.6rem;
     font-weight: bold;
+    border-radius: 50px;
+    border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
-    width: 90%;
-    max-width: 350px;
-    z-index: 1001;
     position: relative;
+    z-index: 200;
 }
 
 .next-btn, .yes-btn {
     background: #ff4d6d;
     color: white;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
 }
 
 #noBtn {
     background: #a9a9a9;
     color: white;
-    position: fixed;
+    transition: left 0.1s ease, top 0.1s ease;
 }
 
-/* CONFETTI */
+/* CONFETTI LAYER */
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* CLICK THROUGH THE HEARTS */
+    z-index: 50;
+}
+
 #confetti span {
-    position: fixed;
-    top: -50px;
-    z-index: 1000;
+    position: absolute;
+    animation: fall linear forwards;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-    .page { padding: 20px; }
-    .card { padding: 15px; width: 95%; }
-    .next-btn, .yes-btn, #noBtn {
-        padding: 20px 40px;
-        font-size: 1.5rem;
-    }
+@keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); }
 }
