@@ -1,4 +1,4 @@
-const herName = "JANELLE"; // <<< CHANGE THIS
+const herName = "JANELLE"; 
 
 document.getElementById("herName").textContent = herName;
 document.getElementById("herName2").textContent = herName;
@@ -6,50 +6,53 @@ document.getElementById("herName3").textContent = herName;
 
 const music = document.getElementById("bgMusic");
 
+// Start small hearts immediately for "vibes"
+window.onload = () => {
+    setInterval(() => createHeart(false), 500);
+};
+
 function goToPage(pageNumber) {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.getElementById(`page${pageNumber}`).classList.add("active");
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(`page${pageNumber}`).classList.add("active");
 
-  // Start music on first interaction
-  if (music.paused) {
-    music.volume = 0.5;
-    music.play().catch(() => {});
-  }
+    if (music && music.paused) {
+        music.volume = 0.4;
+        music.play().catch(() => {});
+    }
 
-  // Heart confetti on YEHEYYYY
-  if (pageNumber === 7) {
-    startHearts();
-  }
+    if (pageNumber === 7) {
+        // Explode with tons of hearts!
+        for(let i=0; i<50; i++) {
+            setTimeout(() => createHeart(true), i * 50);
+        }
+    }
+}
+
+function createHeart(isExplosion) {
+    const confetti = document.getElementById("confetti");
+    const piece = document.createElement("span");
+    const emojis = ["💖", "💕", "🌸", "❤️", "✨"];
+    
+    piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    piece.style.left = Math.random() * 100 + "vw";
+    
+    // If it's the final explosion, make them fall faster and more varied
+    const duration = isExplosion ? (Math.random() * 2 + 1) : (Math.random() * 3 + 4);
+    piece.style.animationDuration = duration + "s";
+    piece.style.fontSize = isExplosion ? "40px" : "20px";
+    
+    confetti.appendChild(piece);
+    setTimeout(() => piece.remove(), duration * 1000);
 }
 
 // No button escape 😈
 const noBtn = document.getElementById("noBtn");
 if (noBtn) {
-  noBtn.addEventListener("mouseover", () => {
-    noBtn.style.position = "absolute";
-    noBtn.style.left = Math.random() * (window.innerWidth - 120) + "px";
-    noBtn.style.top = Math.random() * (window.innerHeight - 60) + "px";
-  });
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - 150);
+        const y = Math.random() * (window.innerHeight - 50);
+        noBtn.style.position = "fixed";
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
 }
-
-// Heart confetti 💕
-function startHearts() {
-  const confetti = document.getElementById("confetti");
-  confetti.innerHTML = "";
-
-  setInterval(() => {
-    const piece = document.createElement("span");
-
-    // Mix of hearts + confetti vibes
-    const emojis = ["💖", "💕", "💘", "❤️", "😘"];
-    piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-
-    piece.style.left = Math.random() * 100 + "vw";
-    piece.style.animationDuration = (Math.random() * 2 + 3) + "s";
-
-    confetti.appendChild(piece);
-
-    setTimeout(() => piece.remove(), 5000);
-  }, 150);
-}
-
