@@ -15,11 +15,10 @@ body {
 .page {
     display: none;
     width: 100%;
-    max-width: 500px;
-    padding: 40px 20px;
+    max-width: 600px; /* Increased width */
+    padding: 20px;
     box-sizing: border-box;
     text-align: center;
-    animation: fadeSlide 0.8s ease-out;
 }
 
 .page.active {
@@ -29,89 +28,87 @@ body {
     align-items: center;
 }
 
+/* --- BIG TEXT ADJUSTMENTS --- */
+
+/* First and Last Page Titles */
+.hero-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5rem; /* Massive text */
+    color: #ff4d6d;
+    margin-bottom: 30px;
+    line-height: 1.1;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+}
+
+/* General Page Titles (Itinerary) */
 h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 2.8em;
+    font-size: 3rem;
     color: #ff4d6d;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
 }
+
+/* The Final Page Celebration Text */
+.huge-celebration {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5.5rem; 
+    color: #ff4d6d;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* --- CARD & CONTENT --- */
 
 .card {
     background: rgba(255, 255, 255, 0.9);
-    width: 100%;
-    padding: 25px;
+    width: 90%;
+    padding: 30px;
     border-radius: 30px;
     box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
-    backdrop-filter: blur(5px);
-    border: 1px solid white;
+    border: 2px solid white;
 }
 
-.card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 20px;
-    margin-bottom: 15px;
+.card h2 {
+    font-size: 2rem;
+    margin: 10px 0;
 }
+
+.card p, .card li {
+    font-size: 1.3rem;
+}
+
+/* --- BUTTONS --- */
 
 .next-btn, .yes-btn {
-    margin-top: 25px;
-    padding: 15px 40px;
+    margin-top: 30px;
+    padding: 20px 50px; /* Bigger buttons */
     border-radius: 50px;
     border: none;
     background: #ff4d6d;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.5rem; /* Bigger font */
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
-    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
-}
-
-.next-btn:hover, .yes-btn:hover {
-    transform: scale(1.05);
-    background: #ff758f;
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
 }
 
 #noBtn {
     background: #a9a9a9;
     color: white;
-    border: none;
-    padding: 15px 40px;
+    padding: 20px 50px;
     border-radius: 50px;
-    font-weight: bold;
-    transition: 0.1s;
+    font-size: 1.5rem;
+    border: none;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    font-size: 1.2em;
-    line-height: 2;
-}
-
-.huge {
-    font-size: 4em;
-    line-height: 1.2;
-}
-
-/* Floating background hearts */
+/* Confetti Layer */
 #confetti span {
     position: fixed;
     top: -50px;
-    font-size: 26px;
-    animation: fall 4s linear forwards;
-    pointer-events: none;
     z-index: 1000;
-}
-
-@keyframes fall {
-    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-}
-
-@keyframes fadeSlide {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
 }
