@@ -68,9 +68,10 @@ h1 {
 }
 
 .card img {
-    width: 100%;
-    aspect-ratio: 4 / 3; /* Forces a consistent shape */
-    object-fit: cover;   /* Fills the box without stretching */
+    width: 100%;          /* Image fills the card's width */
+    height: auto;         /* Keeps aspect ratio */
+    max-width: 100%;      /* Prevents overflow */
+    object-fit: cover;    /* Fills container without stretching */
     border-radius: 20px;
     display: block;
     margin-bottom: 15px;
