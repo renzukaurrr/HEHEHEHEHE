@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Single confetti container -->
   <div id="confetti"></div>
 
   <audio id="bgMusic" loop>
@@ -14,9 +15,9 @@
 
   <!-- PAGE 1 -->
   <div id="page1" class="page active">
-  <h1 class="hero-title">💖 Will you be my Valentine, <span id="herName"></span>? 💖</h1>
-  <button class="next-btn" onclick="goToPage(2)">Click here! ➡️</button>
-</div>
+    <h1 class="hero-title">💖 Will you be my Valentine, <span id="herName"></span>? 💖</h1>
+    <button class="next-btn" onclick="goToPage(2)">Click here! ➡️</button>
+  </div>
 
   <!-- PAGE 2 -->
   <div id="page2" class="page">
@@ -80,21 +81,18 @@
 
   <!-- PAGE 6 -->
   <div id="page6" class="page">
-  <h1 class="hero-title">So... will you be my Valentine, <span id="herName2"></span>? 💖</h1>
-  <div class="buttons">
-    <button class="yes-btn" onclick="goToPage(7)">YES! 💕</button>
-    <button id="noBtn">No 😢</button>
+    <h1 class="hero-title">So... will you be my Valentine, <span id="herName2"></span>? 💖</h1>
+    <div class="buttons">
+      <button class="yes-btn" onclick="goToPage(7)">YES! 💕</button>
+      <button id="noBtn">No 😢</button>
+    </div>
   </div>
-</div>
 
   <!-- PAGE 7 -->
-<div id="page7" class="page">
-  <div id="confetti"></div>
-  <h1 class="huge-celebration">🎉 YEHEYYYY 💖</h1>
-  <h1 class="hero-title">
-    I LOVE YOUUU<br>
-    MWAAAA 😘
-</div>
+  <div id="page7" class="page">
+    <h1 class="huge-celebration">🎉 YEHEYYYY 💖</h1>
+    <h1 class="hero-title">I LOVE YOUUU<br>MWAAAA 😘</h1>
+  </div>
 
   <script src="script.js"></script>
 </body>
