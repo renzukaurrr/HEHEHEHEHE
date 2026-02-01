@@ -6,11 +6,12 @@ document.getElementById("herName3")?.textContent = herName;
 
 const music = document.getElementById("bgMusic");
 
-// Start small hearts
+// Small hearts continuously
 window.onload = () => {
     setInterval(() => createHeart(false), 500);
 };
 
+// Navigate pages
 function goToPage(pageNumber) {
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
     const nextPage = document.getElementById(`page${pageNumber}`);
@@ -21,37 +22,34 @@ function goToPage(pageNumber) {
         music.play().catch(() => {});
     }
 
-    // Final explosion of hearts
+    // Final explosion on page 7
     if (pageNumber === 7) {
         for (let i = 0; i < 50; i++) {
             setTimeout(() => createHeart(true), i * 50);
         }
     }
 
-    // Initialize No button escape **only on page6**
+    // Activate moving "No" button on page 6
     if (pageNumber === 6) {
         const noBtn = document.getElementById("noBtn");
-
         if (noBtn) {
-            noBtn.style.zIndex = 1001; // on top
-
             const moveButton = () => {
                 const padding = 20;
                 const maxX = window.innerWidth - noBtn.offsetWidth - padding;
                 const maxY = window.innerHeight - noBtn.offsetHeight - padding;
-
                 const randomX = Math.floor(Math.random() * maxX);
                 const randomY = Math.floor(Math.random() * maxY);
-
-                noBtn.style.position = "fixed";
                 noBtn.style.left = `${randomX}px`;
                 noBtn.style.top = `${randomY}px`;
             };
 
-            // Desktop hover
-            noBtn.addEventListener("mouseenter", moveButton);
-            // Mobile tap
-            noBtn.addEventListener("touchstart", (e) => {
+            // Remove old listeners
+            const newBtn = noBtn.cloneNode(true);
+            noBtn.parentNode.replaceChild(newBtn, noBtn);
+
+            // Add listeners
+            newBtn.addEventListener("mouseenter", moveButton);
+            newBtn.addEventListener("touchstart", (e) => {
                 e.preventDefault();
                 moveButton();
             });
@@ -59,7 +57,7 @@ function goToPage(pageNumber) {
     }
 }
 
-// Confetti / hearts
+// Hearts / confetti
 function createHeart(isExplosion) {
     const confetti = document.getElementById("confetti");
     const piece = document.createElement("span");
