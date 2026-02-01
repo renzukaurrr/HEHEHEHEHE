@@ -31,7 +31,7 @@ body {
 /* --- TEXT SIZES --- */
 .hero-title {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(2.5rem, 8vw, 4.5rem); /* Adjusts automatically to screen size */
+    font-size: clamp(2.8rem, 10vw, 4.5rem);
     color: #ff4d6d;
     margin-bottom: 30px;
     line-height: 1.1;
@@ -39,13 +39,13 @@ body {
 
 h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(2.2rem, 8vw, 3rem);
     color: #ff4d6d;
 }
 
 .huge-celebration {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(3.5rem, 10vw, 5.5rem); 
+    font-size: clamp(3.8rem, 12vw, 5.5rem); 
     color: #ff4d6d;
     animation: heartbeat 1.5s infinite;
 }
@@ -56,44 +56,49 @@ h1 {
     100% { transform: scale(1); }
 }
 
-/* --- IMAGE FIXES --- */
+/* --- THE CARD --- */
 .card {
-    background: rgba(255, 255, 255, 0.9);
-    width: 100%;
-    max-width: 450px;
+    background: rgba(255, 255, 255, 0.95);
+    width: 90%;
+    max-width: 420px;
     padding: 25px;
     border-radius: 30px;
     box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
     border: 2px solid white;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
+/* --- THE IMAGE FIX --- */
 .card img {
-    width: 100%;
-    aspect-ratio: 4 / 3; /* Forces a consistent shape */
-    object-fit: cover;   /* Fills the box without stretching */
+    width: 100% !important;
+    height: 280px !important; /* Fixed height for all images */
+    object-fit: cover !important; /* Crops to fill without stretching */
+    object-position: center;
     border-radius: 20px;
     display: block;
     margin-bottom: 15px;
 }
 
-/* --- MASSIVE BUTTONS --- */
+/* --- THE BIG BUTTONS --- */
 .next-btn, .yes-btn, #noBtn {
-    margin-top: 25px;
-    padding: 25px 60px; /* Even bigger padding */
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 25px 0 !important;
+    width: 100%;
+    max-width: 320px;
     border-radius: 60px;
     border: none;
-    font-size: 1.8rem;   /* Bigger font size */
-    font-weight: bold;
+    font-size: 1.8rem !important;
+    font-weight: 800;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.2s;
-    width: 90%;          /* Makes them wide and easy to tap */
-    max-width: 350px;
+    box-shadow: 0 10px 20px rgba(255, 77, 109, 0.3);
 }
 
 .next-btn, .yes-btn {
     background: #ff4d6d;
     color: white;
-    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
 }
 
 #noBtn {
@@ -108,58 +113,13 @@ h1 {
     z-index: 1000;
 }
 
-/* --- MOBILE SPECIFIC --- */
+/* --- MOBILE TWEAKS --- */
 @media (max-width: 600px) {
-    .page { padding: 10px; }
-    .card { padding: 15px; width: 95%; }
-    .next-btn, .yes-btn, #noBtn {
-        padding: 20px 40px;
-        font-size: 1.5rem;
+    .card img {
+        height: 220px !important; /* Slightly shorter on small phones */
     }
-}
-
-/* ... keep your @import and body styles ... */
-
-.card {
-    background: rgba(255, 255, 255, 0.95);
-    width: 90%;
-    max-width: 400px; /* Keeps the card from getting too wide */
-    padding: 20px;
-    border-radius: 30px;
-    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
-    border: 2px solid white;
-    margin: 0 auto;
-    overflow: hidden; /* Prevents image corners from sticking out */
-}
-
-.card img {
-    width: 100% !important;   /* Force full width */
-    height: 250px !important; /* Force a specific height */
-    object-fit: cover !important; /* Zoom in slightly to fill the area without stretching */
-    object-position: center; /* Ensures faces in the middle aren't cut off */
-    border-radius: 20px;
-    display: block;
-    margin-bottom: 15px;
-}
-
-/* --- EVEN BIGGER BUTTONS --- */
-.next-btn, .yes-btn, #noBtn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 25px 0; /* Vertical padding */
-    width: 100%;     /* Full width of the card */
-    max-width: 300px;
-    border-radius: 50px;
-    border: none;
-    font-size: 1.8rem; 
-    font-weight: 800; /* Extra bold */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.next-btn, .yes-btn {
-    background: #ff4d6d;
-    color: white;
+    .next-btn, .yes-btn, #noBtn {
+        font-size: 1.5rem !important;
+        padding: 20px 0 !important;
+    }
 }
