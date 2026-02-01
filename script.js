@@ -34,15 +34,22 @@ if (noBtn) {
 
 // Heart confetti 💕
 function startHearts() {
-  const hearts = document.getElementById("hearts");
+  const confetti = document.getElementById("confetti");
+  confetti.innerHTML = "";
 
   setInterval(() => {
-    const heart = document.createElement("span");
-    heart.textContent = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "0";
-    hearts.appendChild(heart);
+    const piece = document.createElement("span");
 
-    setTimeout(() => heart.remove(), 3000);
-  }, 200);
+    // Mix of hearts + confetti vibes
+    const emojis = ["💖", "💕", "💘", "❤️", "😘"];
+    piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.animationDuration = (Math.random() * 2 + 3) + "s";
+
+    confetti.appendChild(piece);
+
+    setTimeout(() => piece.remove(), 5000);
+  }, 150);
 }
+
