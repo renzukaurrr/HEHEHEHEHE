@@ -1,4 +1,4 @@
-const herName = "HER NAME HERE"; // <<< CHANGE THIS
+const herName = "JANELLE"; // <<< CHANGE THIS
 
 document.getElementById("herName").textContent = herName;
 document.getElementById("herName2").textContent = herName;
