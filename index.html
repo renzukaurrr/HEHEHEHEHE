@@ -7,32 +7,28 @@
 </head>
 <body>
 
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="bg-music.mp3" type="audio/mpeg">
+  </audio>
+
   <!-- PAGE 1 -->
   <div id="page1" class="page active">
-    <h1>💖 Will you be my Valentine? 💖</h1>
+    <h1>💖 Will you be my Valentine, <span id="herName"></span>? 💖</h1>
     <button class="next-btn" onclick="goToPage(2)">Next ➡️</button>
   </div>
 
   <!-- PAGE 2 -->
   <div id="page2" class="page">
     <h1>🎯 Date Itinerary</h1>
-
     <div class="card">
-      <img src="gun range picture 1.png" alt="Shooting Range">
-
+      <img src="gun range picture 1.png">
       <h2>Shooting Range</h2>
-
-      <p>
-        <strong>Time:</strong><br>
-        TBA (call muna to check if may reservations)
-      </p>
+      <p><strong>Time:</strong><br>TBA (call muna to check if may reservations)</p>
 
       <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1903.292554775575!2d121.02222033310287!3d14.63120692377145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b65fbcbdaa27%3A0x667e2b3d9520d1e9!2sP.B.Dionisio%20Indoor%20Range!5e1!3m2!1sen!2sph!4v1769948452423!5m2!1sen!2sph"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1903.292554775575!2d121.02222033310287!3d14.63120692377145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b65fbcbdaa27%3A0x667e2b3d9520d1e9!2sP.B.Dionisio%20Indoor%20Range!5e1!3m2!1sen!2sph!4v1769948452423!5m2!1sen!2sph"
+          allowfullscreen loading="lazy"></iframe>
       </div>
 
       <button class="next-btn" onclick="goToPage(3)">Next ➡️</button>
@@ -42,23 +38,14 @@
   <!-- PAGE 3 -->
   <div id="page3" class="page">
     <h1>🍽️ Dinner</h1>
-
     <div class="card">
-      <img src="mapletreehouse.jpeg" alt="Maple Tree House">
-
+      <img src="mapletreehouse.jpeg">
       <h2>Maple Tree House<br>SM North EDSA</h2>
-
-      <p>
-        <strong>Time:</strong><br>
-        Depende ano oras matapos sa firing range
-      </p>
+      <p><strong>Time:</strong><br>Depende ano oras matapos sa firing range</p>
 
       <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4317.361528036717!2d121.03328030000002!3d14.656360699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b7003609f6eb%3A0xd83b604316789beb!2sMaple%20Tree%20House%20SM%20North%20EDSA!5e1!3m2!1sen!2sph!4v1769948683456!5m2!1sen!2sph"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4317.361528036717!2d121.03328030000002!3d14.656360699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b7003609f6eb%3A0xd83b604316789beb!2sMaple%20Tree%20House%20SM%20North%20EDSA!5e1!3m2!1sen!2sph!4v1769948683456!5m2!1sen!2sph"
+          allowfullscreen loading="lazy"></iframe>
       </div>
 
       <button class="next-btn" onclick="goToPage(4)">Next ➡️</button>
@@ -68,37 +55,32 @@
   <!-- PAGE 4 -->
   <div id="page4" class="page">
     <h1>🍨 Dessert</h1>
-
     <div class="card">
-      <img src="MANILA CREAMERY.png" alt="Manila Creamery">
+      <img src="MANILA CREAMERY.png">
       <h2>Manila Creamery</h2>
-      <p>Sweet ending before more fun 💕</p>
       <button class="next-btn" onclick="goToPage(5)">Next ➡️</button>
     </div>
   </div>
 
   <!-- PAGE 5 -->
   <div id="page5" class="page">
-    <h1>📋 Inclusions Summary</h1>
-
+    <h1>📋 Inclusions</h1>
     <div class="card">
       <ul>
         <li>🚗 Sundo sa bahay</li>
         <li>🔫 Firing Range</li>
         <li>🍽️ Maple Tree House</li>
         <li>🍨 Manila Creamery</li>
-        <li>🎬 Movie / other activity if may time</li>
+        <li>🎬 Movie / activity if may time</li>
         <li>🏠 Uwi</li>
       </ul>
-
       <button class="next-btn" onclick="goToPage(6)">Next ➡️</button>
     </div>
   </div>
 
   <!-- PAGE 6 -->
   <div id="page6" class="page">
-    <h1>💖 Will you be my Valentine? 💖</h1>
-
+    <h1>💖 Will you be my Valentine, <span id="herName2"></span>? 💖</h1>
     <div class="buttons">
       <button class="yes-btn" onclick="goToPage(7)">Yes 💕</button>
       <button id="noBtn">No 😢</button>
@@ -107,8 +89,9 @@
 
   <!-- PAGE 7 -->
   <div id="page7" class="page">
+    <div id="hearts"></div>
     <h1 class="huge">🎉 YEHEYYYY!!! 🎉</h1>
-    <p class="huge-sub">Best Valentine ever 💖</p>
+    <p class="huge-sub">See you soon, <span id="herName3"></span> 💖</p>
   </div>
 
   <script src="script.js"></script>
