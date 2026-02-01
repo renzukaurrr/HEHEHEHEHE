@@ -117,3 +117,49 @@ h1 {
         font-size: 1.5rem;
     }
 }
+
+/* ... keep your @import and body styles ... */
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    width: 90%;
+    max-width: 400px; /* Keeps the card from getting too wide */
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+    border: 2px solid white;
+    margin: 0 auto;
+    overflow: hidden; /* Prevents image corners from sticking out */
+}
+
+.card img {
+    width: 100% !important;   /* Force full width */
+    height: 250px !important; /* Force a specific height */
+    object-fit: cover !important; /* Zoom in slightly to fill the area without stretching */
+    object-position: center; /* Ensures faces in the middle aren't cut off */
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* --- EVEN BIGGER BUTTONS --- */
+.next-btn, .yes-btn, #noBtn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 25px 0; /* Vertical padding */
+    width: 100%;     /* Full width of the card */
+    max-width: 300px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.8rem; 
+    font-weight: 800; /* Extra bold */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.next-btn, .yes-btn {
+    background: #ff4d6d;
+    color: white;
+}
