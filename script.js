@@ -45,14 +45,29 @@ function createHeart(isExplosion) {
     setTimeout(() => piece.remove(), duration * 1000);
 }
 
-// No button escape 😈
+// Improved No button escape for Mobile + Desktop
 const noBtn = document.getElementById("noBtn");
+
+const moveButton = () => {
+    // We limit the movement to stay within the visible screen area
+    const padding = 20;
+    const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+    const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+    
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+    
+    noBtn.style.position = "fixed";
+    noBtn.style.left = `${randomX}px`;
+    noBtn.style.top = `${randomY}px`;
+};
+
 if (noBtn) {
-    noBtn.addEventListener("mouseover", () => {
-        const x = Math.random() * (window.innerWidth - 150);
-        const y = Math.random() * (window.innerHeight - 50);
-        noBtn.style.position = "fixed";
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
+    // For Desktop
+    noBtn.addEventListener("mouseover", moveButton);
+    // For Mobile (if she tries to tap it)
+    noBtn.addEventListener("touchstart", (e) => {
+        e.preventDefault(); // Prevents the click from actually happening
+        moveButton();
     });
 }
