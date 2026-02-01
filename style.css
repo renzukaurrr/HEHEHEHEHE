@@ -6,30 +6,23 @@ body {
     margin: 0;
     color: #4a4a4a;
     overflow-x: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
 }
 
 .page {
     display: none;
     width: 100%;
     max-width: 600px;
-    padding: 20px;
+    padding: 40px 20px;
     box-sizing: border-box;
     text-align: center;
-    position: relative; /* important for buttons positioning */
+    position: relative;
 }
 
 .page.active {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: block;
 }
 
-/* --- TEXT SIZES --- */
+/* TEXT */
 .hero-title {
     font-family: 'Dancing Script', cursive;
     font-size: clamp(2.5rem, 8vw, 4.5rem);
@@ -57,7 +50,7 @@ h1 {
     100% { transform: scale(1); }
 }
 
-/* --- IMAGE FIXES --- */
+/* CARD / IMAGE */
 .card {
     background: rgba(255, 255, 255, 0.9);
     width: 100%;
@@ -71,14 +64,12 @@ h1 {
 .card img {
     width: 100%;
     height: auto;
-    max-width: 100%;
     object-fit: cover;
     border-radius: 20px;
-    display: block;
     margin-bottom: 15px;
 }
 
-/* --- MASSIVE BUTTONS --- */
+/* BUTTONS */
 .next-btn, .yes-btn, #noBtn {
     margin-top: 25px;
     padding: 25px 60px;
@@ -87,33 +78,34 @@ h1 {
     font-size: 1.8rem;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s, left 0.3s ease, top 0.3s ease; /* smooth movement */
+    transition: all 0.3s ease;
     width: 90%;
     max-width: 350px;
+    z-index: 1001;
+    position: relative;
 }
 
 .next-btn, .yes-btn {
     background: #ff4d6d;
     color: white;
-    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
 }
 
 #noBtn {
     background: #a9a9a9;
     color: white;
-    z-index: 1001; /* make sure it's on top */
+    position: fixed;
 }
 
-/* Confetti Layer */
+/* CONFETTI */
 #confetti span {
     position: fixed;
     top: -50px;
     z-index: 1000;
 }
 
-/* --- MOBILE SPECIFIC --- */
+/* MOBILE */
 @media (max-width: 600px) {
-    .page { padding: 10px; }
+    .page { padding: 20px; }
     .card { padding: 15px; width: 95%; }
     .next-btn, .yes-btn, #noBtn {
         padding: 20px 40px;
