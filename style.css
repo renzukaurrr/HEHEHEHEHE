@@ -1,109 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ff9aa2, #ffb7b2);
-  margin: 0;
-  text-align: center;
-  color: #333;
-  overflow-x: hidden;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #fff0f3, #ffccd5);
+    margin: 0;
+    color: #4a4a4a;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .page {
-  display: none;
-  min-height: 100vh;
-  padding: 70px 20px;
-  animation: fadeSlide 0.6s ease;
+    display: none;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    animation: fadeSlide 0.8s ease-out;
 }
 
 .page.active {
-  display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8em;
+    color: #ff4d6d;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
 }
 
 .card {
-  background: white;
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    background: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    padding: 25px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid white;
 }
 
 .card img {
-  width: 100%;
-  border-radius: 15px;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 15px;
 }
 
-.map-container iframe {
-  width: 100%;
-  height: 250px;
-  border: 0;
-  border-radius: 15px;
-  margin-top: 15px;
+.next-btn, .yes-btn {
+    margin-top: 25px;
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: none;
+    background: #ff4d6d;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
 }
 
-.next-btn,
-.yes-btn {
-  margin-top: 20px;
-  padding: 12px 30px;
-  border-radius: 30px;
-  border: none;
-  background: #ff4d6d;
-  color: white;
-  font-size: 1.1em;
-  cursor: pointer;
+.next-btn:hover, .yes-btn:hover {
+    transform: scale(1.05);
+    background: #ff758f;
 }
 
 #noBtn {
-  background: #555;
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 30px;
+    background: #a9a9a9;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.1s;
 }
 
 ul {
-  text-align: left;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    font-size: 1.2em;
+    line-height: 2;
 }
 
 .huge {
-  font-size: 3em;
+    font-size: 4em;
+    line-height: 1.2;
 }
 
-#hearts span {
-  position: fixed;
-  font-size: 24px;
-  animation: float 3s linear forwards;
-}
-
-@keyframes float {
-  to {
-    transform: translateY(-100vh);
-    opacity: 0;
-  }
-}
-
+/* Floating background hearts */
 #confetti span {
-  position: fixed;
-  top: -10px;
-  font-size: 26px;
-  animation: fall 4s linear forwards;
-  pointer-events: none;
+    position: fixed;
+    top: -50px;
+    font-size: 26px;
+    animation: fall 4s linear forwards;
+    pointer-events: none;
+    z-index: 1000;
 }
 
 @keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
 
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
