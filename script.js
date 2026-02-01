@@ -6,6 +6,7 @@ document.getElementById("herName3")?.textContent = herName;
 
 const music = document.getElementById("bgMusic");
 
+// Start small hearts
 window.onload = () => {
     setInterval(() => createHeart(false), 500);
 };
@@ -20,19 +21,19 @@ function goToPage(pageNumber) {
         music.play().catch(() => {});
     }
 
+    // Final explosion of hearts
     if (pageNumber === 7) {
         for (let i = 0; i < 50; i++) {
             setTimeout(() => createHeart(true), i * 50);
         }
     }
 
-    // Initialize No button escape **only when page6 is active**
+    // Initialize No button escape **only on page6**
     if (pageNumber === 6) {
         const noBtn = document.getElementById("noBtn");
 
         if (noBtn) {
-            // Make sure button is on top
-            noBtn.style.zIndex = 1001;
+            noBtn.style.zIndex = 1001; // on top
 
             const moveButton = () => {
                 const padding = 20;
@@ -58,6 +59,7 @@ function goToPage(pageNumber) {
     }
 }
 
+// Confetti / hearts
 function createHeart(isExplosion) {
     const confetti = document.getElementById("confetti");
     const piece = document.createElement("span");
