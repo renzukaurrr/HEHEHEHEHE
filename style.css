@@ -91,3 +91,19 @@ ul {
     opacity: 0;
   }
 }
+
+#confetti span {
+  position: fixed;
+  top: -10px;
+  font-size: 26px;
+  animation: fall 4s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
